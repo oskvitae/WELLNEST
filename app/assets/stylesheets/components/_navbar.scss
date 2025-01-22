@@ -8,5 +8,23 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 160px;
+    height: 100px;
+    object-fit: cover;
+}
+
+
+// .dropdown:hover .dropdown-menu {
+//   display: block;
+// }
+
+// // .dropdown-menu {
+// //   margin-top: 0;
+// // }
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  right: 0;
+  left: auto;
+  position: absolute;
 }
