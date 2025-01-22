@@ -1,4 +1,4 @@
 class Service < ApplicationRecord
   belongs_to :user
-  has_many :booking, dependant: :destroy
+  has_many :booking, dependent: :destroy
 end
