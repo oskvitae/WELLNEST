@@ -1,2 +1,11 @@
-<h1>Services#show</h1>
-<p>Find me in app/views/services/show.html.erb</p>
+<h1><%= @service.title %></h1>
+<div class="card mb-3">
+  <img src="<%= @service.image %>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= @service.title %></h5>
+    <p class="card-text"><%= @service.description %></p>
+    <p class="card-text"><strong>Duration:</strong> <%= @service.duration %> minutes</p>
+    <p class="card-text"><strong>Price:</strong> £<%= @service.price %></p>
+    <p class="card-text"><small class="text-muted">Uploaded: 7 minutes ago</small></p>
+    <button type="button" class="btn btn-dark"><%= link_to "Book Now", new_service_booking_path(@service) %></button>
+  </div>

@@ -10,3 +10,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.btn-dark{
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.mb-3 {
+  img {
+    height: 50vh;
+    object-fit: cover;
+  }
+}
