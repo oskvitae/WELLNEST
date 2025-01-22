@@ -7,8 +7,5 @@
     <p class="card-text"><strong>Duration:</strong> <%= @service.duration %> minutes</p>
     <p class="card-text"><strong>Price:</strong> £<%= @service.price %></p>
     <p class="card-text"><small class="text-muted">Uploaded: 7 minutes ago</small></p>
-    <%= form_with url: booking_path, method: :post, class: "d-inline" do %>
-   <%= hidden_field_tag :service_id, @service.id %>
-    <%= submit_tag "Book Now", class: "btn btn-dark" %>
-    <% end %>
+    <button type="button" class="btn btn-dark"><%= link_to "Book Now", booking_path("4") %></button>
   </div>

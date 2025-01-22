@@ -12,6 +12,7 @@
 @import "pages/index";
 
 
+// TEMPORARY CSS
 .btn-dark{
   a {
     text-decoration: none;
@@ -19,9 +20,17 @@
   }
 }
 
+// Class Image Resisizing http://localhost:3000/services/4
 .mb-3 {
   img {
     height: 50vh;
     object-fit: cover;
+  }
+}
+
+//  HOMEPAGE IMAGE BORDER RADIUS
+.col-10 {
+  img {
+    border-radius: 16px;
   }
 }
