@@ -7,5 +7,5 @@
     <p class="card-text"><strong>Duration:</strong> <%= @service.duration %> minutes</p>
     <p class="card-text"><strong>Price:</strong> £<%= @service.price %></p>
     <p class="card-text"><small class="text-muted">Uploaded: 7 minutes ago</small></p>
-    <button type="button" class="btn btn-dark"><%= link_to "Book Now", new_service_booking_path(@service) %></button>
+    <button type="button" class="btn btn-dark"><%= link_to "Book Now", booking_path("4") %></button>
   </div>
