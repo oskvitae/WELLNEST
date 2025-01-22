@@ -11,9 +11,11 @@
   </head>
 
   <body>
+       <%= render 'layouts/navbar' %>
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <h2>hi <%= current_user.email %></h2>
+       <div class = "container mt-5">
+          <%= yield %>
+       </div>
   </body>
 </html>
