@@ -1,6 +1,13 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  // Delete to remove spacing and reverse
+  .avatar {
+    margin-left: 16px;
+  }
+  .btn {
+    width: 120px;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,7 +15,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 160px;
+    width: 160px;
     height: 100px;
     object-fit: cover;
 }

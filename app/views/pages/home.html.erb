@@ -9,7 +9,10 @@
         explore in-person classes from world-leading wellness experts</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
           <button type="button" class="btn btn-dark btn-lg px-4 me-md-2">Explore Classes</button>
+          <% if user_signed_in? %>
+          <% else %>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Sign Up</button>
+          <% end %>
         </div>
       </div>
     </div>

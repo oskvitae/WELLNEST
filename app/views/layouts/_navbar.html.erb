@@ -1,5 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+<%# change class to container-fluid to reverse %>
+  <div class="container">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "wellnest-logo.png", alt: "WellNest Logo", class: "WellNest-logo" %>
     <% end %>
@@ -29,9 +30,7 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+          <button type="button" class="btn btn-dark"><%= link_to "Login", new_user_session_path, class: "nav-link" %></button>
         <% end %>
       </ul>
     </div>
