@@ -84,58 +84,82 @@ Service.destroy_all
 # Seed data
 Service.create!([
   {
-    title: "Vinyasa Flow Yoga",
-    description: "A dynamic yoga class focused on connecting breath with movement.",
-    category: "Yoga",
-    duration: 60,
-    price: 20.00,
-    user_id: 1, # Adjust based on your existing user IDs
-    image: "https://images.pexels.com/photos/917732/pexels-photo-917732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    "title": "Vinyasa Flow Yoga",
+    "description": "A dynamic yoga class focused on connecting breath with movement.",
+    "category": "Yoga",
+    "duration": 60,
+    "price": 20.00,
+    "user_id": 1,
+    "image": "https://images.pexels.com/photos/917732/pexels-photo-917732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "date": "2024-07-15",
+    "time": "18:30",
+    "location": "Manchester",
+    "class_size": 20
   },
   {
-    title: "Breathwork for Relaxation",
-    description: "Learn techniques to reduce stress and improve mental clarity through breathwork.",
-    category: "Breathwork",
-    duration: 45,
-    price: 25.00,
-    user_id: 2,
-    image: "https://images.pexels.com/photos/8981392/pexels-photo-8981392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    "title": "Breathwork for Relaxation",
+    "description": "Learn techniques to reduce stress and improve mental clarity through breathwork.",
+    "category": "Breathwork",
+    "duration": 45,
+    "price": 25.00,
+    "user_id": 2,
+    "image": "https://images.pexels.com/photos/8981392/pexels-photo-8981392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2024-07-22",
+    "time": "19:00",
+    "location": "Bristol",
+    "class_size": 15
   },
   {
-    title: "Reiki Healing Session",
-    description: "A hands-on energy healing technique to promote overall well-being.",
-    category: "Reiki",
-    duration: 90,
-    price: 50.00,
-    user_id: 3,
-    image: "https://images.pexels.com/photos/6932075/pexels-photo-6932075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    "title": "Reiki Healing Session",
+    "description": "A hands-on energy healing technique to promote overall well-being.",
+    "category": "Reiki",
+    "duration": 90,
+    "price": 50.00,
+    "user_id": 3,
+    "image": "https://images.pexels.com/photos/6932075/pexels-photo-6932075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2024-08-05",
+    "time": "17:45",
+    "location": "Edinburgh",
+    "class_size": 10
   },
   {
-    title: "Guided Meditation",
-    description: "A calming session to guide you into a state of deep relaxation.",
-    category: "Meditation",
-    duration: 30,
-    price: 15.00,
-    user_id: 1,
-    image: "https://images.pexels.com/photos/4047042/pexels-photo-4047042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    "title": "Guided Meditation",
+    "description": "A calming session to guide you into a state of deep relaxation.",
+    "category": "Meditation",
+    "duration": 30,
+    "price": 15.00,
+    "user_id": 1,
+    "image": "https://images.pexels.com/photos/4047042/pexels-photo-4047042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "date": "2024-07-18",
+    "time": "20:00",
+    "location": "Liverpool",
+    "class_size": 25
   },
   {
-    title: "Hatha Yoga for Beginners",
-    description: "A gentle yoga class tailored for beginners to learn foundational poses.",
-    category: "Yoga",
-    duration: 60,
-    price: 18.00,
-    user_id: 2,
-    image: "https://images.pexels.com/photos/8436640/pexels-photo-8436640.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "title": "Hatha Yoga for Beginners",
+    "description": "A gentle yoga class tailored for beginners to learn foundational poses.",
+    "category": "Yoga",
+    "duration": 60,
+    "price": 18.00,
+    "user_id": 2,
+    "image": "https://images.pexels.com/photos/8436640/pexels-photo-8436640.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "date": "2024-07-30",
+    "time": "19:30",
+    "location": "Birmingham",
+    "class_size": 18
   },
   {
-    title: "Sound Bath Therapy",
-    description: "Experience deep relaxation through the soothing sounds of crystal bowls.",
-    category: "Sound Therapy",
-    duration: 60,
-    price: 30.00,
-    user_id: 3,
-    image: "https://images.pexels.com/photos/3543846/pexels-photo-3543846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    "title": "Sound Bath Therapy",
+    "description": "Experience deep relaxation through the soothing sounds of crystal bowls.",
+    "category": "Sound Therapy",
+    "duration": 60,
+    "price": 30.00,
+    "user_id": 3,
+    "image": "https://images.pexels.com/photos/3543846/pexels-photo-3543846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "date": "2024-08-12",
+    "time": "18:15",
+    "location": "Glasgow",
+    "class_size": 12
   }
 ])
 

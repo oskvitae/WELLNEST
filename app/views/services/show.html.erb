@@ -1,15 +1,38 @@
-<h1><%= @service.title %></h1>
-<div class="card mb-3">
-  <img src="<%= @service.image %>" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><%= @service.title %></h5>
-    <p class="card-text"><%= @service.description %></p>
-    <p class="card-text"><strong>Duration:</strong> <%= @service.duration %> minutes</p>
-    <p class="card-text"><strong>Price:</strong> £<%= @service.price %></p>
-    <p class="card-text"><small class="text-muted">Uploaded: 7 minutes ago</small></p>
-    <button type="button" class="btn btn-dark"><%= link_to "Book Now", new_service_booking_path(@service) %></button>
+<div class="container">
+    <div class="top">
+      <h1><%= @service.title %></h1>
+
+      <%if user_signed_in?%>
+          <%= simple_form_for [@service, @booking] do |f| %>
+            <%= f.submit "Book Now 2", class:"btn btn-dark" %>
+          <% end %>
+      <% else %>
+          <button type="button" class="btn btn-dark"><%= link_to "Log in",  new_user_session_path %></button>
+      <% end %>
+    </div>
+
+  <div class="container-2">
+    <div class="card mb-3">
+      <img src="<%= @service.image %>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= @service.title %></h5>
+        <p class="card-text"><%= @service.description %></p>
+        <p class="card-text"><strong>Class size:</strong> <%= @service.class_size %> </p>
+        <p class="card-text"><strong>Date:</strong> <%= @service.date %> </p>
+        <p class="card-text"><strong>Time:</strong> <%= @service.time %> </p>
+        <p class="card-text"><strong>Location:</strong> <%= @service.location %> </p>
+        <p class="card-text"><strong>Duration:</strong> <%= @service.duration %> minutes</p>
+        <p class="card-text"><strong>Price:</strong> £<%= @service.price %></p>
+        <p class="card-text"><small class="text-muted">Uploaded: 7 minutes ago</small></p>
+      </div>
   </div>
 
+    <div class="user-card">
+        <p>this is the east side.</p>
+    </div>
+
+  </div>
+</div>
 <%# Create simple Form; prefilled %>
 <%# service_id %>
 <%# user_id %>

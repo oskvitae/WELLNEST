@@ -34,3 +34,16 @@
     border-radius: 16px;
   }
 }
+
+.top{
+  display: flex;
+  justify-content: space-between;
+  .btn-dark{
+    margin-bottom: 10px;
+  }
+}
+
+.container-2{
+  display: flex;
+  justify-content: space-between;
+}

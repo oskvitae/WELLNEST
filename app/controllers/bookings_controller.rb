@@ -14,10 +14,10 @@ class BookingsController < ApplicationController
 
   def create
     @service = Service.find(params[:service_id])
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
     @booking.service = @service
     @booking.user = current_user
-    if @booking.save
+    if @booking.save!
       redirect_to booking_path(@booking), notice: "Booking successfully created"
     else
       render :new, status: :unprocessable_entity
@@ -34,6 +34,7 @@ class BookingsController < ApplicationController
   end
 
   private
+
   def booking_params
     params.require(:booking).permit(:user_id, :service_id, :status)
   end

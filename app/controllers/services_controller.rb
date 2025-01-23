@@ -5,6 +5,7 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -35,6 +36,6 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:title, :description, :duration, :category, :price )
+    params.require(:service).permit(:title, :description, :duration, :category, :price, :date, :time, :location, :class_size)
   end
 end
