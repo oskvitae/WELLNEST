@@ -35,3 +35,20 @@
     border-radius: 16px;
   }
 }
+
+.top{
+  display: flex;
+  justify-content: space-between;
+  .btn-dark{
+    margin-bottom: 10px;
+  }
+}
+
+
+.container-2{
+  display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 32px;
+      width: 100%;
+      max-width: 1200px;
+}

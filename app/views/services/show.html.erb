@@ -1,25 +1,50 @@
-<h1><%= @service.title %></h1>
-<div class="card mb-3">
-  <img src="<%= @service.image %>" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><%= @service.title %></h5>
-    <p class="card-text"><%= @service.description %></p>
-    <p class="card-text"><strong>Duration:</strong> <%= @service.duration %> minutes</p>
-    <p class="card-text"><strong>Price:</strong> £<%= @service.price %></p>
-    <p class="card-text"><strong>Address:</strong> <%= @service.address %></p>
-    <p class="card-text"><small class="text-muted">Uploaded: 7 minutes ago</small></p>
-    <button type="button" class="btn btn-dark"><%= link_to "Book Now", new_service_booking_path(@service) %></button>
+
+<div class="container-1">
+    <div class="top">
+      <h1><%= @service.title %></h1>
+
+      <%if user_signed_in?%>
+          <%= simple_form_for [@service, @booking] do |f| %>
+            <%= f.submit "Book Now", class:"btn btn-dark" %>
+          <% end %>
+      <% else %>
+          <button type="button" class="btn btn-dark btn-lg"><%= link_to "Book Now",  new_user_session_path %></button>
+      <% end %>
+    </div>
+
+  <div class="container-2">
+    <div class="card mb-3">
+      <img src="<%= @service.image %>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= @service.title %></h5>
+        <p class="card-text"><%= @service.description %></p>
+        <p class="card-text"><strong>Class size:</strong> <%= @service.class_size %> </p>
+        <p class="card-text"><strong>Date:</strong> <%= @service.date %> </p>
+        <p class="card-text"><strong>Time:</strong> <%= @service.time %> </p>
+        <p class="card-text"><strong>Address:</strong> <%= @service.address
+%> </p>
+        <p class="card-text"><strong>Duration:</strong> <%= @service.duration %> minutes</p>
+        <p class="card-text"><strong>Price:</strong> £<%= @service.price %></p>
+        <p class="card-text"><small class="text-muted">Uploaded: 7 minutes ago</small></p>
+      </div>
   </div>
 
+  <div class="container-3">
+    <div class="user-card">
+        <img src="<%= @service.user.avatar %>" alt="...">
+        <h2><strong>Instructor:</strong></h2>
+        <h2><%=@service.user.first_name%> <span><%= @service.user.last_name %></span></h2>
+    </div>
+
+<div class="map">
 <div style="width: 100%; height: 200px;"
      data-controller="map"
      data-map-marker-value="<%= @marker.to_json %>"
      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+</div>
 
-<%# Create simple Form; prefilled %>
-<%# service_id %>
-<%# user_id %>
-<%# date %>
-
-<%# user everyone > if user creates serivce > host:true > if host service? > vis on discovery page %>
+    </div>
+    </div>
+  </div>
+</div>

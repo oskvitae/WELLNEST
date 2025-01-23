@@ -91,7 +91,10 @@ Service.create!([
     price: 20.0,
     user_id: 1,
     address: "123 King’s Cross Rd, London",
-    image: "https://images.pexels.com/photos/917732/pexels-photo-917732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    image: "https://images.pexels.com/photos/917732/pexels-photo-917732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    date: "2024-07-15",
+    time: "18:30",
+    class_size: 20
   },
   {
     title: "Breathwork for Relaxation",
@@ -101,7 +104,10 @@ Service.create!([
     price: 25.0,
     user_id: 2,
     address: "45 Camden High St, London",
-    image: "https://images.pexels.com/photos/8981392/pexels-photo-8981392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    image: "https://images.pexels.com/photos/8981392/pexels-photo-8981392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    date: "2024-07-22",
+    time: "19:00",
+    class_size: 15
   },
   {
     title: "Reiki Healing Session",
@@ -111,7 +117,10 @@ Service.create!([
     price: 50.0,
     user_id: 3,
     address: "1 Borough High St, London",
-    image: "https://images.pexels.com/photos/6902375/pexels-photo-6902375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    image: "https://images.pexels.com/photos/6902375/pexels-photo-6902375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    date: "2024-08-05",
+    time: "17:45",
+    class_size: 10
   },
   {
     title: "Guided Meditation",
@@ -121,7 +130,10 @@ Service.create!([
     price: 15.0,
     user_id: 4,
     address: "25 Baker St, London",
-    image: "https://images.pexels.com/photos/4847042/pexels-photo-4847042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    image: "https://images.pexels.com/photos/4847042/pexels-photo-4847042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    date: "2024-07-18",
+    time: "20:00",
+    class_size: 25
   },
   {
     title: "Hatha Yoga for Beginners",
@@ -131,20 +143,25 @@ Service.create!([
     price: 10.0,
     user_id: 5,
     address: "10 Downing St, London",
-    image: "https://images.pexels.com/photos/8346466/pexels-photo-8346466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    image: "https://images.pexels.com/photos/8346466/pexels-photo-8346466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    date: "2024-07-30",
+    time: "19:30",
+    class_size: 18
   },
   {
     title: "Sound Bath Therapy",
     description: "Experience deep relaxation through the soothing sounds of crystal bowls.",
-    category: "Sound Therapy",
+    category: "SoundHealing",
     duration: 60,
     price: 30.0,
     user_id: 3,
     address: "50 Oxford St, London",
-    image: "https://images.pexels.com/photos/3534846/pexels-photo-3534846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    image: "https://images.pexels.com/photos/3534846/pexels-photo-3534846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    date: "2024-08-12",
+    time: "18:15",
+    class_size: 12
   }
 ])
-
 puts "Seed data created: #{Service.count} services."
 
 # db/seeds.rb

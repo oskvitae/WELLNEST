@@ -15,3 +15,13 @@
     </div>
   </div>
 </div>
+
+
+<% @bookings.each do |booking| %>
+  <p><%= booking.service.title %></p>
+  <%= link_to "Delete",
+    booking_path(booking),
+    data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+
+<% end %>
+</ul>
