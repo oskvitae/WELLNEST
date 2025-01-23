@@ -6,6 +6,10 @@ class ServicesController < ApplicationController
   def show
     @service = Service.find(params[:id])
     @booking = Booking.new
+    @marker = {
+      lat: @service.latitude,
+      lng: @service.longitude
+    }
   end
 
   def new
