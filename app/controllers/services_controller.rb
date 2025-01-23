@@ -5,6 +5,10 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
+    @marker = {
+      lat: @service.latitude,
+      lng: @service.longitude
+    }
   end
 
   def new
