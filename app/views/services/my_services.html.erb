@@ -1,0 +1,18 @@
+<h1>Your Live Services</h1>
+
+<div class="cards">
+<% @services.each do |service| %>
+  <div class="col">
+    <div class="card">
+      <img src="<%= service.image %>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= service.title %></h5>
+        <p class="card-text"><%= service.description %></p>
+        <p class="card-text"><strong>Duration:</strong> <%= service.duration %> minutes</p>
+        <p class="card-text"><strong>Price:</strong> £<%= service.price %></p>
+        <%= link_to "Details", service_path(service) %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
