@@ -87,14 +87,16 @@
     </div>
 
      <!--Latest Review Code -->
-
-      <div class="container-reviews">
+    <div class="container-reviews">
+      <% if @reviews.present? %>
         <p>Latest review:</p>
-          <%= @reviews.last.content %>
-          <%= @reviews.last.rating %>
-          comment_by: <%= @reviews.last.user.first_name %>
-        </div>
-      </div>
+        <p><strong>Content:</strong> <%= @reviews.last.content %></p>
+        <p><strong>Rating:</strong> <%= @reviews.last.rating %></p>
+        <p><strong>Comment by:</strong> <%= @reviews.last.user.first_name %></p>
+      <% else %>
+        <p>No reviews available yet.</p>
+      <% end %>
+    </div>
 
       <!--This is the all Review below everything -->
 
