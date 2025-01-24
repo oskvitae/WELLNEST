@@ -3,6 +3,10 @@ class ServicesController < ApplicationController
     @services = Service.all
   end
 
+  def my_services
+    @services = Service.where(user_id: current_user.id)
+  end
+
   def show
     @service = Service.find(params[:id])
     @booking = Booking.new

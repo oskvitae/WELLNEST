@@ -1,5 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+<%# change class to container-fluid to reverse %>
+  <div class="container">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "wellnest-logo.png", alt: "WellNest Logo", class: "WellNest-logo" %>
     <% end %>
@@ -22,16 +23,16 @@
             <%= image_tag current_user.avatar, class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Bookings", bookings_path, class: "dropdown-item" %>
+             
+
+              <%= link_to "My Bookings", my_bookings_path, class: "dropdown-item" %>
               <%= link_to "My Services", my_services_path, class: "dropdown-item" %>
               <%= link_to "Account", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+          <button type="button" class="btn btn-dark"><%= link_to "Login", new_user_session_path, class: "nav-link" %></button>
         <% end %>
       </ul>
     </div>
