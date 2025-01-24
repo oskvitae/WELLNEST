@@ -46,8 +46,25 @@
 
 
 .container-2{
-  display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 32px;
+  // display: grid;
+  //     grid-template-columns: 2fr 1fr;
+  //     gap: 32px;
       width: 100%;
+}
+
+.hidden-container {
+  display: none; /* Initially hidden */
+  width: 100%; /* Full width of parent */
+  margin-bottom: 20px; /* Optional: Add space below */
+}
+
+.hidden-container.active {
+  display: block; /* Show when toggled */
+}
+
+.map-container {
+  width: 100%; /* Ensure full width for the map */
+  height: 500px; /* Set consistent height for the map */
+  border: 1px solid #ddd; /* Optional: Add a border for clarity */
+  margin-top: 10px; /* Optional: Add spacing above */
 }

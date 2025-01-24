@@ -1,6 +1,14 @@
 class ServicesController < ApplicationController
   def index
     @services = Service.all
+    @markers = @services.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { service: service }),
+        card_id: service.id
+      }
+    end
   end
 
   def my_services
@@ -12,7 +20,8 @@ class ServicesController < ApplicationController
     @booking = Booking.new
     @marker = {
       lat: @service.latitude,
-      lng: @service.longitude
+      lng: @service.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { service: @service })
     }
   end
 
@@ -38,12 +47,12 @@ class ServicesController < ApplicationController
   def destroy
     @service = Service.find(params[:id])
     @service.destroy
-    redirect_to services_path(service), notice: "Service successfully removed"
+    redirect_to services_path, notice: "Service successfully removed"
   end
 
   private
 
   def service_params
-    params.require(:service).permit(:title, :description, :duration, :category, :price, :date, :time, :location, :class_size)
+    params.require(:service).permit(:title, :description, :duration, :category, :price, :date, :time, :location, :class_size, :address, :image)
   end
 end
