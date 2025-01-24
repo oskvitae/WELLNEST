@@ -36,6 +36,26 @@ class ServicesController < ApplicationController
     end
   end
 
+  def edit
+    @service = Service.find(params[:id])
+    if @service.user_id != current_user.id
+      redirect_to my_services_path, alert: "You are not authorised to edit this service"
+    end
+  end
+
+  def update
+    @service = Service.find(params[:id])
+    if @service.user_id == current_user.id
+      if@service.update(service_params)
+        redirect_to my_services_path, notice: "Service successfully updated"
+      else
+      render :edit, status: :unprocessable_entity
+      end
+    else
+      redirect_to my_services_path, alert: "You are not authorised to update this service"
+    end
+  end
+
   def destroy
     @service = Service.find(params[:id])
 
