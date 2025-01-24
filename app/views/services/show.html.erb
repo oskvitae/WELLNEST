@@ -1,108 +1,112 @@
-<%# AFTER LECTURE ATTEMPT - Check "_service_show.scss" file for styling %>
-<%# placed temporary image - MAP API different to J's? %>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/">London</a></li>
-      <li class="breadcrumb-item"><a href="/services">Classes</a></li>
-      <li class="breadcrumb-item active" aria-current="page"> <%= @service.title %></li>
-    </ol>
-  </nav>
-
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">London</a></li>
+    <li class="breadcrumb-item"><a href="/services">Classes</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @service.title %></li>
+  </ol>
+</nav>
 
 <div class="section-service-overview">
-    <div class="service-show-heading">
-      <h1><%= @service.title %></h1>
+  <div class="service-show-heading">
+    <h1><%= @service.title %></h1>
 
-      <%if user_signed_in?%>
-          <%= simple_form_for [@service, @booking] do |f| %>
-            <%= f.submit "Book Now", class:"btn btn-dark" %>
-          <% end %>
-      <% else %>
-          <button type="button" class="btn btn-dark btn-lg"><%= link_to "Book Now",  new_user_session_path %></button>
+    <% if user_signed_in? %>
+      <%= simple_form_for [@service, @booking] do |f| %>
+        <%= f.submit "Book Now", class: "btn btn-dark" %>
       <% end %>
-    </div>
-    <div class="container-service-overview">
-      <div class="left-column service">
-        <div class="card mb-3">
-          <img src="<%= @service.image %>" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"><%= @service.title %></h5>
-            <p class="card-text"><%= @service.description %></p>
-            <p class="card-text"><strong>Date:</strong> <%= @service.date %> </p>
-            <p class="card-text"><strong>Time:</strong> <%= @service.time %> </p>
-            <p class="card-text"><strong>Address:</strong> <%= @service.address%> </p>
-            <p class="card-text"><strong>Duration:</strong> <%= @service.duration %> minutes</p>
-            <p class="card-text"><strong>Price:</strong> £<%= @service.price %></p>
-            <p class="card-text"><strong>Class size:</strong> <%= @service.class_size %> </p>
-          </div>
-        </div>
-      </div>
-      <div class="right-column-service">
-        <div class="row-service-provider">
-          <h3><strong>Instructor</strong></h3>
-          <img src="<%= @service.user.avatar %>" class="avatar" alt="...">
-          <div class="instructor-details-text">
-            <h4 ><%=@service.user.first_name%> <span><%= @service.user.last_name %></span></h4>
-            <p>📍 Camden, London</p>
-            <p>Member Since: April 2024</p>
-          </div>
-        </div>
-        <div class="row-service-provider">
-          <img id="temp-map" src="https://urbanwalkingexperience.com/wp-content/uploads/2020/07/Oxford-Street-and-New-Bond-Street-Walking-Mayfair.jpg" alt="">
+    <% else %>
+      <button type="button" class="btn btn-dark btn-lg"><%= link_to "Book Now", new_user_session_path %></button>
+    <% end %>
+  </div>
+  <div class="container-service-overview">
+    <div class="left-column service">
+      <div class="card mb-3">
+        <img src="<%= @service.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= @service.title %></h5>
+          <p class="card-text"><%= @service.description %></p>
+          <p class="card-text"><strong>Date:</strong> <%= @service.date %></p>
+          <p class="card-text"><strong>Time:</strong> <%= @service.time %></p>
+          <p class="card-text"><strong>Address:</strong> <%= @service.address %></p>
+          <p class="card-text"><strong>Duration:</strong> <%= @service.duration %> minutes</p>
+          <p class="card-text"><strong>Price:</strong> £<%= @service.price %></p>
+          <p class="card-text"><strong>Class size:</strong> <%= @service.class_size %></p>
         </div>
       </div>
     </div>
+    <div class="right-column-service">
+      <div class="row-service-provider">
+        <h3><strong>Instructor</strong></h3>
+        <img src="<%= @service.user.avatar %>" class="avatar" alt="...">
+        <div class="instructor-details-text">
+          <h4><%= @service.user.first_name %> <span><%= @service.user.last_name %></span></h4>
+          <p>📍 Camden, London</p>
+          <p>Member Since: April 2024</p>
+        </div>
+      </div>
+      <div class="map">
+  <div style="width: 100%; height: 400px;"
+       data-controller="map"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+       data-map-marker-value="<%= @marker.to_json %>">
+  </div>
+
 </div>
+    </div>
+  </div>
 
 
+  <div class="container-review">
+    <div class="star-rate">
+      <div class="row">
+        <div class="col-xs-4">
 
-<%# PREVIOUS SET UP %>
-<div class="container-1">
-    <div class="top">
-      <h1><%= @service.title %></h1>
+              <%= simple_form_for( [@service, @review],  data: { controller: "submit" }) do |f| %>
+              <!-- Hidden input for rating -->
+              <%= f.hidden_field :rating, id: "rating-hidden", data: { controller: "star-rating" } %>
 
-      <%if user_signed_in?%>
-          <%= simple_form_for [@service, @booking] do |f| %>
-            <%= f.submit "Book Now", class:"btn btn-dark" %>
-          <% end %>
+              <!-- Textarea for review content -->
+              <%= f.input :content, as: :text, label: "Your Review:", input_html: { rows: 3, class: "form-control" } %>
+
+              <!-- Star Rating -->
+              <div class="star-rating" data-controller="star-rating">
+                <span class="star" data-action="mouseover->star-rating#highlight click->star-rating#select" data-value="1">★</span>
+                <span class="star" data-action="mouseover->star-rating#highlight click->star-rating#select" data-value="2">★</span>
+                <span class="star" data-action="mouseover->star-rating#highlight click->star-rating#select" data-value="3">★</span>
+                <span class="star" data-action="mouseover->star-rating#highlight click->star-rating#select" data-value="4">★</span>
+                <span class="star" data-action="mouseover->star-rating#highlight click->star-rating#select" data-value="5">★</span>
+              </div>
+
+
+              <!-- Submit Button -->
+              <%= f.submit "Submit Review", class: "btn btn-dark mt-3" %>
+            <% end %>
+
+        </div>
+      </div>
+    </div>
+
+     <!--Latest Review Code -->
+    <div class="container-reviews">
+      <% if @reviews.present? %>
+        <p>Latest review:</p>
+        <p><strong>Content:</strong> <%= @reviews.last.content %></p>
+        <p><strong>Rating:</strong> <%= @reviews.last.rating %></p>
+        <p><strong>Comment by:</strong> <%= @reviews.last.user.first_name %></p>
       <% else %>
-          <button type="button" class="btn btn-dark btn-lg"><%= link_to "Book Now",  new_user_session_path %></button>
+        <p>No reviews available yet.</p>
       <% end %>
     </div>
 
-  <div class="container-2">
-    <div class="card mb-3">
-      <img src="<%= @service.image %>" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><%= @service.title %></h5>
-        <p class="card-text"><%= @service.description %></p>
-        <p class="card-text"><strong>Class size:</strong> <%= @service.class_size %> </p>
-        <p class="card-text"><strong>Date:</strong> <%= @service.date %> </p>
-        <p class="card-text"><strong>Time:</strong> <%= @service.time %> </p>
-        <p class="card-text"><strong>Address:</strong> <%= @service.address
-%> </p>
-        <p class="card-text"><strong>Duration:</strong> <%= @service.duration %> minutes</p>
-        <p class="card-text"><strong>Price:</strong> £<%= @service.price %></p>
-        <p class="card-text"><small class="text-muted">Uploaded: 7 minutes ago</small></p>
-      </div>
-  </div>
+      <!--This is the all Review below everything -->
 
-  <div class="container-3">
-    <div class="user-card">
-        <img src="<%= @service.user.avatar %>" alt="...">
-        <h2><strong>Instructor:</strong></h2>
-        <h2><%=@service.user.first_name%> <span><%= @service.user.last_name %></span></h2>
+    <div class="reviews-all">
+    <p><strong>All reviews:</strong></p>
+        <% @reviews.each do |review| %>
+            <%= review.content %>
+            <%= review.rating %>
+            comment_by: <%= review.user.first_name %>
+            <hr>
+          <% end %>
     </div>
-
-    <div class="map">
-      <div style="width: 100%; height: 200px;"
-          data-controller="map"
-          data-map-marker-value="<%= @marker.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
-
-    </div>
-    </div>
-  </div>
 </div>

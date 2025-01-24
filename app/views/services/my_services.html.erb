@@ -13,7 +13,9 @@
           <p class="card-text"><%= service.description %></p>
           <p class="card-text"><strong>Duration:</strong> <%= service.duration %> minutes</p>
           <p class="card-text"><strong>Price:</strong> £<%= service.price %></p>
-          <%= link_to "Edit", service_path(service), class: "btn btn-dark " %>
+
+          <%= link_to "Edit", edit_service_path(service), class: "btn btn-dark" %>
+
 
           <% if service.user == current_user %>
             <%= link_to "Remove", service_path(service), method: :delete, data: { confirm: "Are you sure you want to delete this service?" }, class: "btn-cancel" %>

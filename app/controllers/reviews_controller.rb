@@ -4,13 +4,15 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @service = Service.find(params[:service_id])
     @review = Review.new(review_params)
     @review.user = current_user
-    if @review.save
-      redirect_to new_review_path
+    @review.service = @service
+    if @review.save!
+      redirect_to service_path(@service)
     else
       flash[:alert] = "Something went wrong."
-      render :new
+      render "services/show"
     end
   end
 

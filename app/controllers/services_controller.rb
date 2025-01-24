@@ -1,6 +1,19 @@
 class ServicesController < ApplicationController
+
   def index
-    @services = Service.all
+    if params[:search].present?
+      @services = Service.where('title ILIKE ?', "%#{params[:search]}%")
+    else
+      @services = Service.all
+      @markers = @services.map do |service|
+        {
+          lat: service.latitude,
+          lng: service.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { service: service }),
+          card_id: service.id
+        }
+      end
+    end
   end
 
   def my_services
@@ -11,18 +24,16 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     @booking = Booking.new
     @review = Review.new
+    @reviews = @service.reviews
     @marker = {
       lat: @service.latitude,
-      lng: @service.longitude
+      lng: @service.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { service: @service })
     }
   end
 
   def new
     @service = Service.new
-  end
-
-  def my_services
-    @services = Service.where(user_id: current_user.id)
   end
 
   def create
@@ -36,20 +47,35 @@ class ServicesController < ApplicationController
   end
 
   def edit
+    @service = Service.find(params[:id])
+    if @service.user_id != current_user.id
+      redirect_to my_services_path, alert: "You are not authorised to edit this service"
+    end
   end
 
   def update
+    @service = Service.find(params[:id])
+    if @service.user_id == current_user.id
+      if@service.update(service_params)
+        redirect_to my_services_path, notice: "Service successfully updated"
+      else
+      render :edit, status: :unprocessable_entity
+      end
+    else
+      redirect_to my_services_path, alert: "You are not authorised to update this service"
+    end
   end
+
 
   def destroy
     @service = Service.find(params[:id])
-
     if @service.user == current_user
       @service.destroy
       redirect_to my_services_services_path, notice: "Service successfully removed ✅"
     else
       redirect_to services_path, alert: "You are not authorized to delete this service."
     end
+
   end
 
   private
