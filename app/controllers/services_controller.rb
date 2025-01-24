@@ -1,17 +1,18 @@
 class ServicesController < ApplicationController
 
   def index
-if params[:search].present?
+    if params[:search].present?
       @services = Service.where('title ILIKE ?', "%#{params[:search]}%")
     else
-    @services = Service.all
-    @markers = @services.map do |service|
-      {
-        lat: service.latitude,
-        lng: service.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { service: service }),
-        card_id: service.id
-      }
+      @services = Service.all
+      @markers = @services.map do |service|
+        {
+          lat: service.latitude,
+          lng: service.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { service: service }),
+          card_id: service.id
+        }
+      end
     end
   end
 
