@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :show]
   end
 
+  # ADDED DURING PRE PRESENTATION NIGHT SESH
+  get "my-services", to: "services#my_services"
+  get "my-bookings", to: "bookings#my_bookings"
+
   resources :bookings, only: [:index, :show, :update, :destroy]
 
   devise_for :users
