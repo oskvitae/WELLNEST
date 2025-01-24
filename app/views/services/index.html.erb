@@ -1,17 +1,14 @@
 <h1>Browse Classes</h1>
-
 <%= form_with(url: services_path, method: :get, local: true) do %>
   <%= label_tag :search, "Search Services" %>
   <%= text_field_tag :search, params[:search], placeholder: "Search by title or content" %>
   <%= submit_tag "Search" %>
 <% end %>
-
 <div data-controller="toggle">
   <!-- Toggle Button -->
   <button data-action="click->toggle#toggle" data-toggle-target="button" class="btn btn-primary mb-4">
     Show Map
   </button>
-
   <!-- Hidden Container with Map -->
   <div data-toggle-target="container" class="hidden-container">
     <div id="map-container" class="map-container"
@@ -21,20 +18,19 @@
     </div>
   </div>
 </div>
-
 <!-- Cards Section -->
 <div class="cards">
-
-<% @services.each do |service| %>
-  <div class="col">
-    <div class="card">
-      <img src="<%= service.image %>" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><%= service.title %></h5>
-        <p class="card-text"><%= service.description %></p>
-        <p class="card-text"><strong>Duration:</strong> <%= service.duration %> minutes</p>
-        <p class="card-text"><strong>Price:</strong> £<%= service.price %></p>
-        <%= link_to "View Details", service_path(service), class: "btn btn-dark" %>
+  <% @services.each do |service| %>
+    <div class="col">
+      <div class="card">
+        <img src="<%= service.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= service.title %></h5>
+          <p class="card-text"><%= service.description %></p>
+          <p class="card-text"><strong>Duration:</strong> <%= service.duration %> minutes</p>
+          <p class="card-text"><strong>Price:</strong> £<%= service.price %></p>
+          <%= link_to "Details", service_path(service) %>
+        </div>
       </div>
     </div>
   <% end %>
