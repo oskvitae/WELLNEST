@@ -1,4 +1,4 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   static targets = ["star"];
@@ -9,29 +9,25 @@ export default class extends Controller {
     this.resetStars();
   }
 
-  // Reset all stars to gray
   resetStars() {
     this.stars.forEach(star => {
-      star.style.color = "#ccc"; // Gray color
+      star.style.color = "#ccc"; // Default color (gray)
     });
   }
 
-  // Highlight stars based on hover
   highlight(event) {
     const selectedIndex = this.stars.indexOf(event.target); // Get index of hovered star
     this.stars.forEach((star, index) => {
-      star.style.color = index <= selectedIndex ? "black" : "#ccc"; // Fill stars up to hovered one with black
+      star.style.color = index <= selectedIndex ? "black" : "#ccc"; // Fill stars up to hovered one
     });
   }
 
-  // Save the selected rating when a star is clicked
   select(event) {
-    const selectedValue = event.target.dataset.value;
-    this.hiddenInput.value = selectedValue; // Set the hidden input value to the clicked star's value
+    const selectedValue = event.target.dataset.value; // Get value of clicked star
+    this.hiddenInput.value = selectedValue; // Save rating in hidden field
 
-    // Update the star colors based on the selected rating
     this.stars.forEach((star, index) => {
-      star.style.color = index < selectedValue ? "black" : "#ccc"; // Fill stars up to selected one with black
+      star.style.color = index < selectedValue ? "black" : "#ccc"; // Fill stars up to selected one
     });
   }
 }

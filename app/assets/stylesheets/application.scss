@@ -12,6 +12,8 @@
 @import "pages/index";
 
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
+@import "star-rating.js/dist/star-rating.css";
+
 
 // TEMPORARY CSS
 .btn-dark{
@@ -51,4 +53,17 @@
       gap: 32px;
       width: 100%;
       max-width: 1200px;
+}
+
+
+.container-review{
+  width: 400px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.container-reviews{
+  width: 400px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
