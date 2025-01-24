@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :show]
   end
 
-  # ADDED DURING PRE PRESENTATION NIGHT SESH
   get "my-services", to: "services#my_services"
   get "my-bookings", to: "bookings#my_bookings"
 
