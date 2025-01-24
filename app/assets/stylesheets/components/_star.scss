@@ -1,5 +1,5 @@
 .star-rating {
-  font-size: 5rem;
+  font-size: 3rem;
 }
 
 .star-rating .star {
@@ -15,4 +15,8 @@
 .star-rating .star:hover,
 .star-rating .star.is-hover {
   color: black; /* Hover color */
+}
+
+.container-review{
+  width: 400px;
 }

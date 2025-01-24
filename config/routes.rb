@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # get 'services/destroy'
   resources :services do
     resources :bookings, only: [:new, :create, :show]
+    resources :reviews, only: [:new, :create]
   end
 
   get "my-services", to: "services#my_services"
