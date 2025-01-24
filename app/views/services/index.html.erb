@@ -1,5 +1,11 @@
 <h1>Browse Classes</h1>
 
+<%= form_with(url: services_path, method: :get, local: true) do %>
+  <%= label_tag :search, "Search Services" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search by title or content" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <div data-controller="toggle">
   <!-- Toggle Button -->
   <button data-action="click->toggle#toggle" data-toggle-target="button" class="btn btn-primary mb-4">

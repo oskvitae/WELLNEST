@@ -12,6 +12,8 @@
 @import "pages/index";
 
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
+@import "star-rating.js/dist/star-rating.css";
+
 
 // TEMPORARY CSS
 .btn-dark{
@@ -52,19 +54,31 @@
       width: 100%;
 }
 
+
 .hidden-container {
-  display: none; /* Initially hidden */
-  width: 100%; /* Full width of parent */
-  margin-bottom: 20px; /* Optional: Add space below */
+  display: none; 
+  width: 100%; 
+  margin-bottom: 20px; 
 }
 
 .hidden-container.active {
-  display: block; /* Show when toggled */
+  display: block; 
 }
 
 .map-container {
-  width: 100%; /* Ensure full width for the map */
-  height: 500px; /* Set consistent height for the map */
-  border: 1px solid #ddd; /* Optional: Add a border for clarity */
-  margin-top: 10px; /* Optional: Add spacing above */
+  width: 100%; 
+  height: 500px; 
+  border: 1px solid #ddd; 
+  margin-top: 10px; 
+
+.container-review{
+  width: 400px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.container-reviews{
+  width: 400px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }

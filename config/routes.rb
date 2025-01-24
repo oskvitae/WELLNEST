@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   # get 'services/destroy'
   resources :services do
     resources :bookings, only: [:new, :create, :show]
+    resources :reviews, only: [:new, :create]
   end
 
-  # ADDED DURING PRE PRESENTATION NIGHT SESH
   get "my-services", to: "services#my_services"
   get "my-bookings", to: "bookings#my_bookings"
 

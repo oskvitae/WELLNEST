@@ -50,7 +50,61 @@
        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
        data-map-marker-value="<%= @marker.to_json %>">
   </div>
+
 </div>
     </div>
   </div>
+
+
+  <div class="container-review">
+    <div class="star-rate">
+      <div class="row">
+        <div class="col-xs-4">
+
+              <%= simple_form_for( [@service, @review],  data: { controller: "submit" }) do |f| %>
+              <!-- Hidden input for rating -->
+              <%= f.hidden_field :rating, id: "rating-hidden", data: { controller: "star-rating" } %>
+
+              <!-- Textarea for review content -->
+              <%= f.input :content, as: :text, label: "Your Review:", input_html: { rows: 3, class: "form-control" } %>
+
+              <!-- Star Rating -->
+              <div class="star-rating" data-controller="star-rating">
+                <span class="star" data-action="mouseover->star-rating#highlight click->star-rating#select" data-value="1">★</span>
+                <span class="star" data-action="mouseover->star-rating#highlight click->star-rating#select" data-value="2">★</span>
+                <span class="star" data-action="mouseover->star-rating#highlight click->star-rating#select" data-value="3">★</span>
+                <span class="star" data-action="mouseover->star-rating#highlight click->star-rating#select" data-value="4">★</span>
+                <span class="star" data-action="mouseover->star-rating#highlight click->star-rating#select" data-value="5">★</span>
+              </div>
+
+
+              <!-- Submit Button -->
+              <%= f.submit "Submit Review", class: "btn btn-dark mt-3" %>
+            <% end %>
+
+        </div>
+      </div>
+    </div>
+
+     <!--Latest Review Code -->
+
+      <div class="container-reviews">
+        <p>Latest review:</p>
+          <%= @reviews.last.content %>
+          <%= @reviews.last.rating %>
+          comment_by: <%= @reviews.last.user.first_name %>
+        </div>
+      </div>
+
+      <!--This is the all Review below everything -->
+
+    <div class="reviews-all">
+    <p><strong>All reviews:</strong></p>
+        <% @reviews.each do |review| %>
+            <%= review.content %>
+            <%= review.rating %>
+            comment_by: <%= review.user.first_name %>
+            <hr>
+          <% end %>
+    </div>
 </div>
