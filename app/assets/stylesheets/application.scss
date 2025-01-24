@@ -10,3 +10,44 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+@import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
+
+// TEMPORARY CSS
+.btn-dark{
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+// Class Image Resisizing http://localhost:3000/services/4
+.mb-3 {
+  img {
+    height: 50vh;
+    object-fit: cover;
+  }
+}
+
+//  HOMEPAGE IMAGE BORDER RADIUS
+.col-10 {
+  img {
+    border-radius: 16px;
+  }
+}
+
+.top{
+  display: flex;
+  justify-content: space-between;
+  .btn-dark{
+    margin-bottom: 10px;
+  }
+}
+
+
+.container-2{
+  display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 32px;
+      width: 100%;
+}

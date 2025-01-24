@@ -16,8 +16,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :show]
   end
 
-  resources :bookings, only: [:index, :show, :update, :destroy]
+  get "my-services", to: "services#my_services"
+  get "my-bookings", to: "bookings#my_bookings"
 
+  resources :bookings, only: [:index, :show, :update, :destroy]
 
   devise_for :users
   root to: "pages#home"

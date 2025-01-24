@@ -1,16 +1,27 @@
-<div class="info-top">
-    <h3>Services:</h3>
-</div>
-
-<div class="container">
-  <div class="cards">
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/703016/pexels-photo-703016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);">
-            <h2><%= "Personal training" %></h2>
-          </div>
-
-
-
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="https://cdn.pixabay.com/photo/2019/01/27/22/32/mountains-3959204_1280.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Wellness Reimagined</h1>
+        <p class="lead">We were built for more than rooms and offices;
+        explore in-person classes from world-leading wellness experts</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-dark btn-lg px-4 me-md-2">Explore Classes</button>
+          <% if user_signed_in? %>
+          <% else %>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Sign Up</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<%= link_to "view Services", services_path %>
-<%= link_to "view Bookings", bookings_path %>
+
+
+<%# <div class="info-top">
+    <h3>Discover Wellness Classes in London</h3>
+</div> %>
+<%# <%= link_to "view Services", services_path %>
+
+<%# <%= link_to "view Bookings", bookings_path %>
