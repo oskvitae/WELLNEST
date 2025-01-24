@@ -1,6 +1,11 @@
 class ServicesController < ApplicationController
+
   def index
-    @services = Service.all
+    if params[:query].present?
+      @services = Service.where('title ILIKE ? OR content ILIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
+    else
+      @services = Service.all
+    end
   end
 
   def my_services
@@ -33,12 +38,6 @@ class ServicesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def destroy

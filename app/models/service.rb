@@ -5,3 +5,9 @@ class Service < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end
+
+class Services < ApplicationRecord
+  def self.search(query)
+    where("title LIKE ? OR content LIKE ?", "%#{query}%", "%#{query}%")
+  end
+end

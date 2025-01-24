@@ -1,5 +1,11 @@
 <h1>Browse Classes</h1>
 
+<%= form_with(url: service_path, method: :get, local: true) do %>
+  <%= label_tag :search, "Search Services" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search by title or content" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <div class="cards">
 <% @services.each do |service| %>
   <div class="col">
@@ -16,3 +22,4 @@
   </div>
 <% end %>
 </div>
+

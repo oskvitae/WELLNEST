@@ -1,27 +1,16 @@
 <h1>My Bookings</h1>
 
+<!-- <%= form_with(url: Services_path, method: :get, local: true) do %> -->
+<!--   <%= label_tag :query, "Services" %> -->
+<!--   <%= text_field_tag :query, params[:query] %> -->
+<!--   <%= submit_tag "Search" %> -->
+<!-- <% end %> -->
 
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://images.pexels.com/photos/4047042/pexels-photo-4047042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Guided Meditation</h5>
-        <p class="card-text">A calming session to guide you into a state of deep relaxation..</p>
-        <p class="card-text"><small class="text-muted">Attendance: 14 people</small></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<% @bookings.each do |booking| %>
-  <p><%= booking.service.title %></p>
-  <%= link_to "Delete",
-    booking_path(booking),
-    data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-
-<% end %>
+<ul>
+  <% @bookings.each do |booking| %>
+    <p><%= booking.service.title %></p>
+    <%= link_to "Delete",
+      booking_path(booking),
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  <% end %>
 </ul>
