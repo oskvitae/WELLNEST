@@ -6,21 +6,36 @@
   <%= submit_tag "Search" %>
 <% end %>
 
-<div class="cards">
-<% @services.each do |service| %>
-  <div class="col">
-    <div class="card">
-      <img src="<%= service.image %>" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><%= service.title %></h5>
-        <p class="card-text"><%= service.description %></p>
-        <p class="card-text"><strong>Date:</strong> <%= service.date %> </p>
-        <p class="card-text"><strong>Time:</strong> <%= service.time %> </p>
-        <p class="card-text"><strong>Location:</strong> <%= service.address %> </p>
-        <p class="card-text"><strong>Price:</strong> £<%= service.price %></p>
-        <%= link_to "Details", service_path(service) %>
-      </div>
+<div data-controller="toggle">
+  <!-- Toggle Button -->
+  <button data-action="click->toggle#toggle" data-toggle-target="button" class="btn btn-primary mb-4">
+    Show Map
+  </button>
+
+  <!-- Hidden Container with Map -->
+  <div data-toggle-target="container" class="hidden-container">
+    <div id="map-container" class="map-container"
+         data-controller="map"
+         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+         data-map-markers-value="<%= @markers.to_json %>">
     </div>
   </div>
-<% end %>
+</div>
+
+<!-- Cards Section -->
+<div class="cards">
+  <% @services.each do |service| %>
+    <div class="col">
+      <div class="card">
+        <img src="<%= service.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= service.title %></h5>
+          <p class="card-text"><%= service.description %></p>
+          <p class="card-text"><strong>Duration:</strong> <%= service.duration %> minutes</p>
+          <p class="card-text"><strong>Price:</strong> £<%= service.price %></p>
+          <%= link_to "Details", service_path(service) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
