@@ -130,20 +130,20 @@ Service.create!([
     price: 15.0,
     user_id: 4,
     address: "25 Baker St, London",
-    image: "https://images.pexels.com/photos/4847042/pexels-photo-4847042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.saybrook.edu%2Funbound%2Fguided-imagery-and-motivational-interviewing%2F&psig=AOvVaw0cgi2dJIx-ikwDrcEV1vUw&ust=1737823475436000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNCU2InnjosDFQAAAAAdAAAAABAE",
     date: "2024-07-18",
     time: "20:00",
     class_size: 25
   },
   {
     title: "Hatha Yoga for Beginners",
-    description: "A gentle yoga class tailored for beginners to learn foundational poses.",
+    description: "A yoga class described as 'Hatha' will typically involve a set of physical postures (yoga poses) and breathing techniques",
     category: "Yoga",
     duration: 60,
     price: 10.0,
     user_id: 5,
     address: "10 Downing St, London",
-    image: "https://images.pexels.com/photos/8346466/pexels-photo-8346466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://media.self.com/photos/664b7c48361a924504d46e9e/4:3/w_2560%2Cc_limit/1022055750",
     date: "2024-07-30",
     time: "19:30",
     class_size: 18
@@ -156,7 +156,7 @@ Service.create!([
     price: 30.0,
     user_id: 3,
     address: "50 Oxford St, London",
-    image: "https://images.pexels.com/photos/3534846/pexels-photo-3534846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.healthline.com%2Fhealth%2Fsound-bath&psig=AOvVaw2dZk7sptDSCYmHgjd-492q&ust=1737823419430000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNCpou_mjosDFQAAAAAdAAAAABAE",
     date: "2024-08-12",
     time: "18:15",
     class_size: 12

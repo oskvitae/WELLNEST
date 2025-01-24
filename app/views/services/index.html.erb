@@ -10,7 +10,7 @@
         <p class="card-text"><%= service.description %></p>
         <p class="card-text"><strong>Duration:</strong> <%= service.duration %> minutes</p>
         <p class="card-text"><strong>Price:</strong> £<%= service.price %></p>
-        <%= link_to "Details", service_path(service) %>
+        <%= link_to "View Details", service_path(service), class: "btn btn-dark" %>
       </div>
     </div>
   </div>

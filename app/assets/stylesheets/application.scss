@@ -51,3 +51,25 @@
       gap: 32px;
       width: 100%;
 }
+
+.pill-button {
+  background-color: #67bea5;
+  border: none;
+  color: rgb(227, 227, 227);
+  padding: 4px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  font-size: small;
+  font-weight:600;
+  letter-spacing: 2px;
+}
+
+.btn-cancel {
+  margin: 32px 0px;
+  color: rgb(213, 35, 35);
+  text-decoration: none;
+}

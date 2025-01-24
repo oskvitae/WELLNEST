@@ -1,10 +1,20 @@
 <h1>Your Upcoming Classes</h1>
-<p>--------------------------</p>
-<% @bookings.each do |booking| %>
-  <p><%= booking.service.title %></p>
-  <%= link_to "Cancel",
-    booking_path(booking),
-    data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-<p>--------------------------</p>
 
+
+<% @bookings.each do |booking| %>
+<div class="card my-bookings-card">
+  <div class="card-header">
+    <button class="pill-button">Confirmed 🎉</button>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= booking.service.title %></h5>
+    <p class="card-text"><%= booking.service.description %></p>
+    <p class="card-text"><%= booking.service.address %>
+    <p class="card-text"><p class="card-text"><%= booking.service.date %> at <%= booking.service.time %></p>
+    </p>
+    <%= link_to "Cancel Booking",
+    booking_path(booking),
+    data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-cancel"%>
+  </div>
+</div>
 <% end %>
