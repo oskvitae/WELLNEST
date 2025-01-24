@@ -248,6 +248,10 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rake (13.2.1)
+    ransack (4.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.11.0)
       psych (>= 4.0.0)
     regexp_parser (2.10.0)
@@ -333,6 +337,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.5, >= 7.1.5.1)
+  ransack
   sassc-rails
   selenium-webdriver
   simple_form!

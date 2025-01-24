@@ -1,0 +1,10 @@
+<h1>Your Upcoming Classes</h1>
+<p>--------------------------</p>
+<% @bookings.each do |booking| %>
+  <p><%= booking.service.title %></p>
+  <%= link_to "Cancel",
+    booking_path(booking),
+    data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+<p>--------------------------</p>
+
+<% end %>

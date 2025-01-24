@@ -12,6 +12,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(service: @service, user: current_user)
   end
 
+  # IS THIS A SECURE???
+  def my_bookings
+    @bookings = Booking.where(user_id: current_user.id)
+    @service = Service.all
+  end
+
   def create
     @service = Service.find(params[:service_id])
     @booking = Booking.new

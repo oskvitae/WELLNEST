@@ -1,6 +1,15 @@
 class ServicesController < ApplicationController
+
   def index
-    @services = Service.all
+    if params[:search].present?
+      @services = Service.where('title ILIKE ?', "%#{params[:search]}%")
+    else
+      @services = Service.all
+    end
+  end
+
+  def my_services
+    @services = Service.where(user_id: current_user.id)
   end
 
   def show
@@ -18,10 +27,6 @@ class ServicesController < ApplicationController
     @service = Service.new
   end
 
-  def my_services
-    @services = Service.where(user_id: current_user.id)
-  end
-
   def create
     @service = Service.new(service_params)
     @service.user = current_user
@@ -33,10 +38,25 @@ class ServicesController < ApplicationController
   end
 
   def edit
+    @service = Service.find(params[:id])
+    if @service.user_id != current_user.id
+      redirect_to my_services_path, alert: "You are not authorised to edit this service"
+    end
   end
 
   def update
+    @service = Service.find(params[:id])
+    if @service.user_id == current_user.id
+      if@service.update(service_params)
+        redirect_to my_services_path, notice: "Service successfully updated"
+      else
+      render :edit, status: :unprocessable_entity
+      end
+    else
+      redirect_to my_services_path, alert: "You are not authorised to update this service"
+    end
   end
+
 
   def destroy
     @service = Service.find(params[:id])
